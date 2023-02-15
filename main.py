@@ -8,7 +8,12 @@ def echo():
         return 'Hi there!'
     elif request.method == 'POST':
         data = request.get_json(force=True)
-        print(data)
+        
+        chat_id = data['message']['from']['id']
+        text = data['message']['text']
+
+        print(chat_id, text)
+
         return 'Hello'
 
 if __name__ == '__main__':
