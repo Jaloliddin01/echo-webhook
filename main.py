@@ -1,5 +1,5 @@
 from flask import Flask, request
-from telegram import Bot
+from telegram import Bot, Update
 import os
 
 echo_app = Flask(__name__)
@@ -13,9 +13,14 @@ def echo():
         return 'Hi there!'
     elif request.method == 'POST':
         data = request.get_json(force=True)
+
+        update = Update.de_json(data, bot)
         
-        chat_id = data['message']['from']['id']
-        text = data['message']['text']
+        chat_id = update.message.chat.id
+        text = update.message.text
+
+        if text != None:
+            bot.send_message(chat_id, text)
 
         print(f"ID`si {chat_id} bo`lgan foydalanuvchi ``{text}`` xabarini yubordi")
 
