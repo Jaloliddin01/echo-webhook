@@ -1,6 +1,11 @@
 from flask import Flask, request
+from telegram import Bot
+import os
 
 echo_app = Flask(__name__)
+
+TOKEN = os.environ['TOKEN']
+bot = Bot(TOKEN)
 
 @echo_app.route('/', methods=['GET', 'POST'])
 def echo():
@@ -13,6 +18,8 @@ def echo():
         text = data['message']['text']
 
         print(f"ID`si {chat_id} bo`lgan foydalanuvchi ``{text}`` xabarini yubordi")
+
+        bot.send_message(chat_id, text)
 
         return 'Hello'
 
