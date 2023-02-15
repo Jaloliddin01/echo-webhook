@@ -12,7 +12,7 @@ def echo():
         chat_id = data['message']['from']['id']
         text = data['message']['text']
 
-        print(chat_id, text)
+        print(f"ID`si {chat_id} bo`lgan foydalanuvchi ``{text}`` xabarini yubordi")
 
         return 'Hello'
 
