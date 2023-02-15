@@ -24,7 +24,7 @@ def echo():
 
         print(f"ID`si {chat_id} bo`lgan foydalanuvchi ``{text}`` xabarini yubordi")
 
-        bot.send_message(chat_id, text)
+        # bot.send_message(chat_id, text)
 
         return 'Hello'
 
