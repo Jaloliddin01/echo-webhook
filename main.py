@@ -13,7 +13,7 @@ def start(update: Update, context: CallbackContext):
 
 def send_dog(update: Update, context: CallbackContext):
     
-    pic = requests.get('https://random.dog/woof.json')
-    print(pic)
+    # pic = requests.get('https://random.dog/woof.json')
+    # print(pic)
 
     update.message.reply_text("mamam")
