@@ -9,7 +9,7 @@ def start(update: Update, context: CallbackContext):
             KeyboardButton('dog'),
         ],
     ]
-    update.message.reply_text("Press one of the buttons", reply_markup=ReplyKeyboardMarkup(keyboard=keyboard, resize_keyboard=True, one_time_keyboard=True))
+    update.message.reply_text("Press one of the buttons", reply_markup=ReplyKeyboardMarkup(keyboard=keyboard, resize_keyboard=True))
 
 def send_dog(update: Update, context: CallbackContext):
     
