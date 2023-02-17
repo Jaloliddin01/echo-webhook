@@ -4,7 +4,8 @@ from telegram.ext import Dispatcher, MessageHandler, CommandHandler, Filters
 import os
 
 from main import ( 
-    send_dog, 
+    send_dog,
+    send_cat, 
     start
 )
 
@@ -27,7 +28,7 @@ def main():
 
         dp.add_handler(CommandHandler('start', start))
         dp.add_handler(MessageHandler(Filters.text('dog'), send_dog))
-
+        dp.add_handler(MessageHandler(Filters.text('cat'), send_cat))
 
         dp.process_update(update)
         return 'Ok'

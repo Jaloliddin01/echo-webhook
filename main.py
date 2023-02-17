@@ -9,11 +9,16 @@ def start(update: Update, context: CallbackContext):
             KeyboardButton('dog'),
         ],
     ]
-    update.message.reply_text("Press one of the buttons", reply_markup=ReplyKeyboardMarkup(keyboard=keyboard, one_time_keyboard=True))
+    update.message.reply_text("Press one of the buttons", reply_markup=ReplyKeyboardMarkup(keyboard=keyboard, resize_keyboard=True, one_time_keyboard=True))
 
 def send_dog(update: Update, context: CallbackContext):
     
     pic = requests.get('https://random.dog/woof.json').json()
 
+    update.message.reply_photo(pic['url'])
 
-    update.message.reply_text(pic['url'])
+def send_cat(update: Update, context: CallbackContext):
+    
+    pic = requests.get('https://aws.random.cat/meow').json()
+
+    update.message.reply_photo(pic['file'])
